@@ -64,5 +64,5 @@ boolean twoConditions = (firstNumber > secondNumber) || (secondNumber < thirdyNu
 system.debug(twoConditions); // This result is true
 
 boolean twoOtherConditions = (firstNumber < secondNumber) && (secondNumber > thirdyNumber) // 8 < 10 AND 10 > 15?
-system.debug(twoConditions); // This result is false
+system.debug(twoOtherConditions); // This result is false
 ```
