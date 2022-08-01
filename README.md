@@ -77,12 +77,3 @@ if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
     System.debug('I havent money');
 }
 ```
-=======
-
-boolean twoConditions = (firstNumber > secondNumber) || (secondNumber < thirdyNumber); // 8 > 10 OR 10 < 15?
-system.debug(twoConditions); // This result is true
-
-boolean twoOtherConditions = (firstNumber < secondNumber) && (secondNumber > thirdyNumber); // 8 < 10 AND 10 > 15?
-system.debug(twoOtherConditions); // This result is false
-```
->>>>>>> 5455707d59ded6eff37c9140d1e39c30817a252e
