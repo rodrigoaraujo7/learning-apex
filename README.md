@@ -52,13 +52,14 @@ system.debug(++firstNumber); // Increasing  a value
 ## Conditional in variables
 
 ```apex	
-integer firstNumber = 8, secondNumber = 10;
+integer firstNumber = 8, secondNumber = 10, thirdyNumber = 15;
 
 boolean condition = firstNumber > secondNumber; // 8 > 10?
 system.debug(condition); // This result is false
 
 boolean otherCondition = firstNumber < secondNumber; // 8 < 10?
 system.debug(otherCondition); // This result is true
+<<<<<<< HEAD
 ```
 
 ## Conditional
@@ -76,3 +77,12 @@ if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
     System.debug('I havent money');
 }
 ```
+=======
+
+boolean twoConditions = (firstNumber > secondNumber) || (secondNumber < thirdyNumber); // 8 > 10 OR 10 < 15?
+system.debug(twoConditions); // This result is true
+
+boolean twoOtherConditions = (firstNumber < secondNumber) && (secondNumber > thirdyNumber); // 8 < 10 AND 10 > 15?
+system.debug(twoOtherConditions); // This result is false
+```
+>>>>>>> 5455707d59ded6eff37c9140d1e39c30817a252e
