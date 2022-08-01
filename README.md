@@ -77,3 +77,54 @@ if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
     System.debug('I havent money');
 }
 ```
+
+## Loops
+
+```apex	
+// loop with a fixed amount of repetitions
+// syntax for loop
+for (init_stmt; exit_condition; increment_stmt) {
+    code_block
+}
+
+for (integer i = 0; i < 10; i++) { // one in one
+    system.debug(i);
+}
+
+for (integer i = 2; i <= 44; i += 2) { // two in two
+    system.debug(i);
+}
+
+// for a infinity repetitions
+// syntax while loop
+while (condition) {
+    code_block
+}
+
+integer z = 0; // declaring variable out of loop
+while (z <= 10) { // one in one
+    system.debug(z);
+    z++;
+}
+
+while (z <= 40) { // four in four
+    system.debug(z);
+    z += 4;
+}
+
+//syntax do while loop
+do {
+   code_block
+} while (condition);
+
+integer x = 0;
+do { // one in one
+    System.debug(x);
+    x++;
+} while (x <= 5);
+
+do { // two in two
+    System.debug(x);
+    x += 2;
+} while (x <= 12);
+```
