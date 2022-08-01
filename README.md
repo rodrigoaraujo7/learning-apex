@@ -59,7 +59,6 @@ system.debug(condition); // This result is false
 
 boolean otherCondition = firstNumber < secondNumber; // 8 < 10?
 system.debug(otherCondition); // This result is true
-<<<<<<< HEAD
 ```
 
 ## Conditional
