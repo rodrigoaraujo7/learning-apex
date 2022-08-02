@@ -159,3 +159,16 @@ Set<Integer> listNumber = new Set<Integer> {
 
 system.debug(listNumber); // Will be return 2, 12, 32, 312, 3627189
 ```
+
+## Map
+
+```apex
+Map<string, string> colorCodes = new Map<string, string>(); // Declares variable
+
+colorCodes.put('Light Blue', '#6FA4F2'); // Seting two values
+colorCodes.put('Light Purple', '#884FBD'); // Seting others two values
+
+System.debug(colorCodes); // Will be return {Light Blue=#6FA4F2, Light Purple=#884FBD}
+
+
+```
