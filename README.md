@@ -127,3 +127,35 @@ do { // two in two
     x += 2;
 } while (x <= 12);
 ```
+
+## List
+
+```apex	
+List<string> persons = new List<string>();
+persons.add('Rodrigo');
+persons.add('Nicolas');
+system.debug(persons)
+
+List<integer> listNumber = new List<integer> {
+    8, 12, 27, 34, 41, 49
+};
+system.debug(listNumber)
+
+List<string> persons = new string[5]; // Set 5 values at default
+persons.add(0, 'Rodrigo'); // Adding a new index with string value
+persons.set(1, 'Nicolas'); // Seting a string value at second index
+persons[2] = 'Robert'; // Another method to set a new value
+
+System.debug(persons); // Will be return (Rodrigo, Nicolas, Robert, null, null, null)
+```
+
+## Set
+
+```apex
+// Will be sort by smallest (1 - 10) (A - Z)
+Set<Integer> listNumber = new Set<Integer> {
+    12, 12, 32, 312, 3627189, 2
+};
+
+system.debug(listNumber);
+```
