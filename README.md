@@ -157,5 +157,5 @@ Set<Integer> listNumber = new Set<Integer> {
     12, 12, 32, 312, 3627189, 2
 };
 
-system.debug(listNumber);
+system.debug(listNumber); // Will be return 2, 12, 32, 312, 3627189
 ```
