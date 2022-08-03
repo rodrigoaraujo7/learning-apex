@@ -169,6 +169,24 @@ colorCodes.put('Light Blue', '#6FA4F2'); // Seting two values
 colorCodes.put('Light Purple', '#884FBD'); // Seting others two values
 
 System.debug(colorCodes); // Will be return {Light Blue=#6FA4F2, Light Purple=#884FBD}
+```
 
+## Object
 
+```apex
+// Creating a new object
+public class Person {
+  public string name;
+  public string lastName;
+  public integer age;
+}
+
+// Creating a new Person
+Person firstPerson = new Person();
+
+firstPerson.name = 'Rodrigo';
+firstPerson.lastName = 'Rodrigo';
+firstPerson.age = 19;
+
+system.debug(firstPerson); // Will be return |DEBUG|Person:[age=19, lastName=Rodrigo, name=Rodrigo]
 ```
