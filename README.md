@@ -185,15 +185,16 @@ public class Person {
 Person firstPerson = new Person();
 
 firstPerson.name = 'Rodrigo';
-firstPerson.lastName = 'Rodrigo';
+firstPerson.lastName = 'Araujo';
 firstPerson.age = 19;
 
-system.debug(firstPerson); // Will be return |DEBUG|Person:[age=19, lastName=Rodrigo, name=Rodrigo]
+system.debug(firstPerson); // Will be return |DEBUG|Person:[age=19, lastName=Araujo, name=Rodrigo]
 
 // Functions inside the object
 public class Person {
   // code block
   
+  // At now Let's create it as null as we don't need it to return anything!
   public void speak() {
     system.debug(name);
     system.debug(lastName);
@@ -202,4 +203,32 @@ public class Person {
 }
 
 firstPerson.speak();
+
+// Simple calc
+public class Calculator {
+    // Notice that now I didn't put void, but integer, that's because now I need it to return something!
+    // And in this case, we need pass the params.
+    public Integer addition(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue + secondValue;
+        
+        // Return me the result
+        return result;
+    
+        // IMPORTANT!!!!!!!
+        // Note: Under the result, nothing else will be executed
+    }
+}
+
+// Object with conditional
+public Integer division(Integer firstValue, Integer secondValue) {
+    if (secondValue == 0) {
+        system.debug('Cant divide by zero!');
+        return 0;
+    } else {
+        return firstValue / secondValue;
+    }
+}
+
+Calculator newCalc = new Calculator();
+Integer firstResult = newCalc.division(122, 0); // Will be return |DEBUG|Can't divide by zero!
 ```
