@@ -189,4 +189,17 @@ firstPerson.lastName = 'Rodrigo';
 firstPerson.age = 19;
 
 system.debug(firstPerson); // Will be return |DEBUG|Person:[age=19, lastName=Rodrigo, name=Rodrigo]
+
+// Functions inside the object
+public class Person {
+  // code block
+  
+  public void speak() {
+    system.debug(name);
+    system.debug(lastName);
+    system.debug(age);
+  }
+}
+
+firstPerson.speak();
 ```
