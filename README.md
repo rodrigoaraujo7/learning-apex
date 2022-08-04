@@ -235,7 +235,7 @@ Integer firstResult = newCalc.division(122, 0); // Will be return |DEBUG|Can't d
 
 ## Static
 
-```
+```apex
 // Because good practice to your system
 // from now on we create methods using the *static*
 // this will make your system much faster.
