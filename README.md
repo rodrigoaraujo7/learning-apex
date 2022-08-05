@@ -249,3 +249,22 @@ public class newCalc {
 
 newCalc.add(5, 10);
 ```
+
+<h1 align="center">
+  <br>
+  SOQL
+  <br>
+</h1>
+
+```soql
+// SOQL is used to search, change, delete, insert your org records.
+// Now we will do a simple data search
+
+// Select for me, the records from the Id, Name and Phone fields.
+// From the Account object
+
+// Will be return all the records I requested above
+
+SELECT Id, Name, Phone
+FROM Account
+```
