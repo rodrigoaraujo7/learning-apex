@@ -269,6 +269,9 @@ newCalc.add(5, 10);
 
 SELECT Id, Name, Phone
 FROM Account
+
+SELECT Id, Name, Account.Name, Account.Id
+  FROM Contact
 ```
 
 ## Where
