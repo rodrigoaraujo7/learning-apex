@@ -295,3 +295,16 @@ SELECT Id, Name, Vip__c, AnnualRevenue
   WHERE Vip__c = true
     AND AnnualRevenue > 500
 ```
+
+## Like
+
+```soql
+// Here, I will search for an Account that has Rodrigo using the like
+// %Rodrigo  - Ends with Rodrigo
+// Rodrigo%  - Starts with Rodrigo
+// %Rodrigo%  - Have Rodrigo
+
+SELECT Id, Name
+  FROM Account
+  WHERE Name LIKE '%Rodrigo'
+```
