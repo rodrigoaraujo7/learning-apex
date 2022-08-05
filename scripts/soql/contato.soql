@@ -1,0 +1,3 @@
+SELECT Id, Name, Account.Name, Account.Id
+  FROM Contact
+  WHERE Account.Id = '0018Z00002g7l6OQAQ'

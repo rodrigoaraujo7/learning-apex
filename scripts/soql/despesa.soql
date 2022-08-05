@@ -1,2 +1,3 @@
-SELECT Data__c, DataPagamento__c, Valor__c, Id
+SELECT Name, ValorDespesa__c
   FROM Despesa__c
+  ORDER BY ValorDespesa__c Desc

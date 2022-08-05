@@ -68,35 +68,30 @@ series.put(7, 'Rick and Morty');
 
 system.debug(series);
 
-//Exercicio 5
-// FIXME:
-List<string> letter = new List<string> {
-    'A', 'B', 'C', 'D', 'E', 'F' // lista de letras
-};
+// Exercicio 5
+list<String> letters = new String[6];
+letters[0]='A';
+letters[1]='B';
+letters[2]='C';
+letters[3]='D';
+letters[4]='E';
+letters[5]='F';
 
-string letters = 'ABCDEF'; //  variavel que armazena letras
-string randomWord = ''; // Varial que armazena uma palavra aleatoria começando com um valor vazio
+string faca = (letters[5]+letters[0]+letters[2]+letters[0]);
+string baba = (letters[1]+letters[0]+letters[1]+letters[0]);
+string fada = (letters[5]+letters[0]+letters[3]+letters[0]);
+string acabada = (letters[0]+letters[2]+letters[0]+letters[1]+letters[0]+letters[3]+letters[0]);
+system.debug(faca + ' ' + baba + ' ' + fada + ' ' + acabada);
 
-// while que não entendo pois peguei do google 🥳
-while (randomWord != 'FACA' || randomWord != 'BABA' || randomWord != 'FADA' || randomWord != 'ACABADA') {
-    Integer idx = Math.mod(Math.abs(Crypto.getRandomInteger()), letters.length());
-    randomWord += letters.substring(idx, idx+1);
-} system.debug(randomWord);
+// Exercicio 6
+Map<String, String> empresa = new Map<String, String>();
+empresa.put('empresa', 'Mamaco Corp');
+empresa.put('ceo', 'Romero Brito');
+empresa.put('valor', '8000000');
+empresa.put('CNPJ', '1233210001-99');
 
-// TODO: tentar outros métodos, e lembrar o que são esses outros métodos
-// while (randomWord.length() <= 7) {
-//     Integer idx = Math.mod(Math.abs(Crypto.getRandomInteger()), letters.length());
-//     randomWord += letters.substring(idx, idx+1);
-//     if (randomWord == 'FACA' || randomWord == 'BABA' || randomWord == 'FADA' || randomWord == 'ACABADA') {
-//         system.debug(randomWord);
-//     }
-// }
+String empresaNome = empresa.get('empresa');
+String empresaCeo = empresa.get('ceo');
+String empresaValor = empresa.get('valor');
 
-// if (randomWord == 'FACA' || randomWord == 'BABA' || randomWord == 'FADA' || randomWord == 'ACABADA') {
-//     system.debug(randomWord);
-// } else {
-//     while (randomWord.length() <= 7) {
-//         Integer idx = Math.mod(Math.abs(Crypto.getRandomInteger()), letters.length());
-//         randomWord += letters.substring(idx, idx+1);
-//     }
-// }
+system.debug('A empresa ' + empresaNome + ' alcançou o valor de mercado de R$'+ empresaValor + '. O CEO '+ empresaCeo + ' declarou ser o primeiro passo para dominar o mundo');

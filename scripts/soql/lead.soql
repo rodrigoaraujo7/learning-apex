@@ -1,2 +1,3 @@
-SELECT FirstName, CPF__c, Company
-FROM Lead
+SELECT Name, Rating
+  FROM Lead
+  ORDER BY Name, Rating

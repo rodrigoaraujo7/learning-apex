@@ -1,10 +1,8 @@
-// SOQL is used to search, change, delete, insert your org records.
-// Now we will do a simple data search
+// Here, I will search for an Account that has Rodrigo using the like
+// %Rodrigo  - Ends with Rodrigo
+// Rodrigo%  - Starts with Rodrigo
+// %Rodrigo%  - Have Rodrigo
 
-// Select for me, the records from the Id, Name and Phone fields.
-// From the Account object
-
-// Will be return all the records I requested above
-
-SELECT Id, Name, Phone
-FROM Account
+SELECT Id, Name
+  FROM Account
+  WHERE Name LIKE '%Rodrigo'

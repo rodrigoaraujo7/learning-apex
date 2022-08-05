@@ -1,2 +1,2 @@
-SELECT Id, CreatedById, CreatedDate
+SELECT Name, Amount, CreatedById, LeadSource, StageName
 FROM Opportunity
