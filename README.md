@@ -232,3 +232,39 @@ public Integer division(Integer firstValue, Integer secondValue) {
 Calculator newCalc = new Calculator();
 Integer firstResult = newCalc.division(122, 0); // Will be return |DEBUG|Can't divide by zero!
 ```
+
+## Static
+
+```apex
+// Because good practice to your system
+// from now on we create methods using the *static*
+// this will make your system much faster.
+
+public class newCalc {
+  public static void add(Integer n1, Integer n2) {
+    integer result = n1 + n2;
+    system.debug(result);
+  }
+}
+
+newCalc.add(5, 10);
+```
+
+<h1 align="center">
+  <br>
+  SOQL
+  <br>
+</h1>
+
+```soql
+// SOQL is used to search, change, delete, insert your org records.
+// Now we will do a simple data search
+
+// Select for me, the records from the Id, Name and Phone fields.
+// From the Account object
+
+// Will be return all the records I requested above
+
+SELECT Id, Name, Phone
+FROM Account
+```
