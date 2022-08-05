@@ -256,6 +256,8 @@ newCalc.add(5, 10);
   <br>
 </h1>
 
+## Select & From
+
 ```soql
 // SOQL is used to search, change, delete, insert your org records.
 // Now we will do a simple data search
@@ -267,4 +269,53 @@ newCalc.add(5, 10);
 
 SELECT Id, Name, Phone
 FROM Account
+
+SELECT Id, Name, Account.Name, Account.Id
+  FROM Contact
+```
+
+## Where
+
+```soql
+// Now we will use where
+// It is very simple, it adds a filtering system for us
+
+SELECT Id, Name, Phone
+  FROM Account
+  WHERE AnnualRevenue > 1000
+```
+
+## Where And
+
+```soql
+// Use the AND when you need use more than one WHERE
+
+SELECT Id, Name, Vip__c, AnnualRevenue
+  FROM Account
+  WHERE Vip__c = true
+    AND AnnualRevenue > 500
+```
+
+## Like
+
+```soql
+// Here, I will search for an Account that has Rodrigo using the like
+// %Rodrigo  - Ends with Rodrigo
+// Rodrigo%  - Starts with Rodrigo
+// %Rodrigo%  - Have Rodrigo
+
+SELECT Id, Name
+  FROM Account
+  WHERE Name LIKE '%Rodrigo'
+```
+
+## Order by
+
+```
+// Order by is used to literally Order by Asc or Desc
+// Asc - lowest => highest
+
+SELECT Name, ValorDespesa__c
+  FROM Despesa__c
+  ORDER BY ValorDespesa__c Desc
 ```
