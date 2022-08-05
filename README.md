@@ -281,3 +281,14 @@ SELECT Id, Name, Phone
   FROM Account
   WHERE AnnualRevenue > 1000
 ```
+
+## Where And
+
+```soql
+// Use the AND when you need use more than one WHERE
+
+SELECT Id, Name, Vip__c, AnnualRevenue
+  FROM Account
+  WHERE Vip__c = true
+    AND AnnualRevenue > 500
+```
