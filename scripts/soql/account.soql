@@ -1,6 +1,10 @@
-// Use .soql files to store SOQL queries.
-// You can execute queries in VS Code by selecting the
-//     query text and running the command:
-//     SFDX: Execute SOQL Query with Currently Selected Text
+// SOQL is used to search, change, delete, insert your org records.
+// Now we will do a simple data search
 
-SELECT Id, Name FROM Account
+// Select for me, the records from the Id, Name and Phone fields.
+// From the Account object
+
+// Will be return all the records I requested above
+
+SELECT Id, Name, Phone
+FROM Account

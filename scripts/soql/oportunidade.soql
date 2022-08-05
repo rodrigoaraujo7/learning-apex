@@ -1,0 +1,2 @@
+SELECT Id, CreatedById, CreatedDate
+FROM Opportunity

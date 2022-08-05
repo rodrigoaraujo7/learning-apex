@@ -1,0 +1,2 @@
+SELECT Data__c, DataPagamento__c, Valor__c, Id
+  FROM Despesa__c
