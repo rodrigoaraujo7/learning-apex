@@ -308,3 +308,14 @@ SELECT Id, Name
   FROM Account
   WHERE Name LIKE '%Rodrigo'
 ```
+
+## Order by
+
+```
+// Order by is used to literally Order by Asc or Desc
+// Asc - lowest => highest
+
+SELECT Name, ValorDespesa__c
+  FROM Despesa__c
+  ORDER BY ValorDespesa__c Desc
+```
