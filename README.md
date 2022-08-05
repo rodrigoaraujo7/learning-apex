@@ -256,6 +256,8 @@ newCalc.add(5, 10);
   <br>
 </h1>
 
+## Select & From
+
 ```soql
 // SOQL is used to search, change, delete, insert your org records.
 // Now we will do a simple data search
