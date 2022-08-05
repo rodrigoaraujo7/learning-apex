@@ -270,3 +270,14 @@ newCalc.add(5, 10);
 SELECT Id, Name, Phone
 FROM Account
 ```
+
+## Where
+
+```soql
+// Now we will use where
+// It is very simple, it adds a filtering system for us
+
+SELECT Id, Name, Phone
+  FROM Account
+  WHERE AnnualRevenue > 1000
+```
