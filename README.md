@@ -311,6 +311,17 @@ SELECT Id, Name
 
 ## Order by
 
+```soql
+// Order by is used to literally Order by Asc or Desc
+// Asc - lowest => highest
+
+SELECT Name, ValorDespesa__c
+  FROM Despesa__c
+  ORDER BY ValorDespesa__c Desc
+```
+
+## Order by
+
 ```
 // Order by is used to literally Order by Asc or Desc
 // Asc - lowest => highest
@@ -318,4 +329,14 @@ SELECT Id, Name
 SELECT Name, ValorDespesa__c
   FROM Despesa__c
   ORDER BY ValorDespesa__c Desc
+```
+
+## Limit
+
+```
+// Limits my query to 10 records
+
+SELECT Id, Name
+  FROM Account
+  LIMIT 10
 ```
