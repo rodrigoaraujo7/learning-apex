@@ -320,15 +320,14 @@ SELECT Name, ValorDespesa__c
   ORDER BY ValorDespesa__c Desc
 ```
 
-## Order by
+## Group by
 
 ```
-// Order by is used to literally Order by Asc or Desc
-// Asc - lowest => highest
+// Group duplicate records
 
-SELECT Name, ValorDespesa__c
-  FROM Despesa__c
-  ORDER BY ValorDespesa__c Desc
+SELECT Name, COUNT(Id)
+  FROM Opportunity
+  GROUP BY Name
 ```
 
 ## Limit
