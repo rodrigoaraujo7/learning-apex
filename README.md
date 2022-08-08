@@ -324,10 +324,12 @@ SELECT Name, ValorDespesa__c
 
 ```
 // Group duplicate records
+// HAVING - Groups filter
 
 SELECT Name, COUNT(Id)
   FROM Opportunity
   GROUP BY Name
+  HAVING COUNT(Id) > 1
 ```
 
 ## Limit
