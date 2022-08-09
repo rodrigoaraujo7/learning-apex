@@ -341,3 +341,13 @@ SELECT Id, Name
   FROM Account
   LIMIT 10
 ```
+
+## Limit
+
+```
+// Count Sum Min Max Avg
+
+SELECT Account.Name, COUNT(Id), SUM(Amount), MAX(Amount), MIN(Amount), AVG(Amount)
+    FROM Opportunity
+    GROUP BY Account.Name
+```
