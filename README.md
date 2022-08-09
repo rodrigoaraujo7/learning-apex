@@ -322,7 +322,7 @@ SELECT Name, ValorDespesa__c
 
 ## Group by
 
-```
+```soql
 // Group duplicate records
 // HAVING - Groups filter
 
@@ -334,7 +334,7 @@ SELECT Name, COUNT(Id)
 
 ## Limit
 
-```
+```soql
 // Limits my query to 10 records
 
 SELECT Id, Name
@@ -344,10 +344,21 @@ SELECT Id, Name
 
 ## Limit
 
-```
+```soql
 // Count Sum Min Max Avg
 
 SELECT Account.Name, COUNT(Id), SUM(Amount), MAX(Amount), MIN(Amount), AVG(Amount)
     FROM Opportunity
     GROUP BY Account.Name
+```
+
+## Subquery
+
+```soql
+// Selecting a new query, inside a query
+
+SELECT Id, Name, 
+(SELECT Id, Amount 
+FROM Opportunities)
+    FROM Account
 ```
