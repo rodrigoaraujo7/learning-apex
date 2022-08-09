@@ -360,3 +360,16 @@ SELECT Id, Name,
 FROM Opportunities)
     FROM Account
 ```
+
+<h1 align="center">
+  <br>
+  APEX WITH SOQL
+  <br>
+</h1>
+
+```apex
+// Putting all records of an object inside a list in apex
+
+List<Account> lstAccount = [SELECT Name, Id FROM Account];
+system.debug(lstAccount);
+```
