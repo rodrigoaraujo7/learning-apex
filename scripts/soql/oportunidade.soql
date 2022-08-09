@@ -1,3 +1,6 @@
-SELECT Name, Account.Name
-  FROM Opportunity
-  WHERE Name = 'Restaurante Gifara'
+SELECT Active__c,
+(SELECT Name
+FROM Despesas__r)
+  FROM Account
+  WHERE Active__c = 'No'
+  OR Active__c = null

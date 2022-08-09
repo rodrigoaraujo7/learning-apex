@@ -3,6 +3,10 @@
 # For useful gitignore templates see: https://github.com/github/gitignore
 
 # Salesforce cache
+.husky/
+.vscode/
+config/
+force-app/
 .sf/
 .sfdx/
 .localdevserver/
