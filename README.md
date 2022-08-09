@@ -311,11 +311,65 @@ SELECT Id, Name
 
 ## Order by
 
-```
+```soql
 // Order by is used to literally Order by Asc or Desc
 // Asc - lowest => highest
 
 SELECT Name, ValorDespesa__c
   FROM Despesa__c
   ORDER BY ValorDespesa__c Desc
+```
+
+## Group by
+
+```soql
+// Group duplicate records
+// HAVING - Groups filter
+
+SELECT Name, COUNT(Id)
+  FROM Opportunity
+  GROUP BY Name
+  HAVING COUNT(Id) > 1
+```
+
+## Limit
+
+```soql
+// Limits my query to 10 records
+
+SELECT Id, Name
+  FROM Account
+  LIMIT 10
+```
+
+## Count Sum Min Max Avg
+
+```soql
+SELECT Account.Name, COUNT(Id), SUM(Amount), MAX(Amount), MIN(Amount), AVG(Amount)
+    FROM Opportunity
+    GROUP BY Account.Name
+```
+
+## Subquery
+
+```soql
+// Selecting a new query, inside a query
+
+SELECT Id, Name, 
+(SELECT Id, Amount 
+FROM Opportunities)
+    FROM Account
+```
+
+<h1 align="center">
+  <br>
+  APEX WITH SOQL
+  <br>
+</h1>
+
+```apex
+// Putting all records of an object inside a list in apex
+
+List<Account> lstAccount = [SELECT Name, Id FROM Account];
+system.debug(lstAccount);
 ```
