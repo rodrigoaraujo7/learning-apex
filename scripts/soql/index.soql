@@ -1,0 +1,6 @@
+SELECT Id, Name, (SELECT Id, Amount 
+FROM Opportunities), (SELECT Name
+FROM Contacts), (SELECT Conta__c
+FROM Despesas__r), (SELECT Name
+FROM Projetos__r)
+    FROM Account

@@ -29,3 +29,6 @@ public class AreaGeometrica {
         system.debug('A area do triangulo é: ' + resultado);
     }
 }
+
+AreaGeometrica area = new AreaGeometrica();
+area.calcTriangulo(12, 10);

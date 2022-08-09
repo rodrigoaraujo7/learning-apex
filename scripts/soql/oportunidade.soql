@@ -1,2 +1,3 @@
-SELECT Name, Amount, CreatedById, LeadSource, StageName
-FROM Opportunity
+SELECT Name, Account.Name
+  FROM Opportunity
+  WHERE Name = 'Restaurante Gifara'
