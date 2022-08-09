@@ -374,3 +374,36 @@ FROM Opportunities)
 List<Account> lstAccount = [SELECT Name, Id FROM Account];
 system.debug(lstAccount);
 ```
+
+## Read
+
+```soql
+List<Account> lstAccount = [SELECT Id, Name FROM Account];
+
+for(Account item : lstAccount) {
+    system.debug(item.Name);
+}
+```
+
+## Update
+
+```soql
+List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+
+// When account have AnnualRevenue < 100, update the record to 500
+for(Account item : lstAccount) {
+    item.AnnualRevenue = 500;
+    update item;
+}
+```
+
+## Delete
+
+```soql
+List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+
+// When account have AnnualRevenue < 100, delete the record
+for(Account item : lstAccount) {
+    delete item;
+}
+```
