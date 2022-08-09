@@ -11,14 +11,14 @@
 
 ## Hello World!
 
-```apex
+```cls
 // Remember to put ";"
 System.debug('Hello World!');
 ```
 
 ## Variables
 
-```apex
+```cls
 // Text
 string name = 'Rodrigo';
 
@@ -37,7 +37,7 @@ date birthDate = 17072003;
 
 ## Math methods
 
-```apex
+```cls
 integer firstNumber = 20, secondNumber = 50;
 integer math = firstNumber + secondNumber; // addition
 integer math = firstNumber - secondNumber; // subtraction
@@ -52,7 +52,7 @@ system.debug(++firstNumber); // Increasing  a value
 
 ## Conditional in variables
 
-```apex	
+```cls
 integer firstNumber = 8, secondNumber = 10, thirdyNumber = 15;
 
 boolean condition = firstNumber > secondNumber; // 8 > 10?
@@ -64,7 +64,7 @@ system.debug(otherCondition); // This result is true
 
 ## Conditional
 
-```apex	
+```cls	
 integer price = 0;
 
 if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
@@ -80,7 +80,7 @@ if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
 
 ## Loops
 
-```apex	
+```cls	
 // loop with a fixed amount of repetitions
 // syntax for loop
 for (init_stmt; exit_condition; increment_stmt) {
@@ -131,7 +131,7 @@ do { // two in two
 
 ## List
 
-```apex	
+```cls	
 List<string> persons = new List<string>();
 persons.add('Rodrigo');
 persons.add('Nicolas');
@@ -152,7 +152,7 @@ System.debug(persons); // Will be return (Rodrigo, Nicolas, Robert, null, null, 
 
 ## Set
 
-```apex
+```cls
 // Will be sort by smallest (1 - 10) (A - Z)
 Set<Integer> listNumber = new Set<Integer> {
     12, 12, 32, 312, 3627189, 2
@@ -163,7 +163,7 @@ system.debug(listNumber); // Will be return 2, 12, 32, 312, 3627189
 
 ## Map
 
-```apex
+```cls
 Map<string, string> colorCodes = new Map<string, string>(); // Declares variable
 
 colorCodes.put('Light Blue', '#6FA4F2'); // Seting two values
@@ -174,7 +174,7 @@ System.debug(colorCodes); // Will be return {Light Blue=#6FA4F2, Light Purple=#8
 
 ## Object
 
-```apex
+```cls
 // Creating a new object
 public class Person {
   public string name;
@@ -236,7 +236,7 @@ Integer firstResult = newCalc.division(122, 0); // Will be return |DEBUG|Can't d
 
 ## Static
 
-```apex
+```cls
 // Because good practice to your system
 // from now on we create methods using the *static*
 // this will make your system much faster.
@@ -377,7 +377,7 @@ system.debug(lstAccount);
 
 ## Read
 
-```soql
+```cls
 List<Account> lstAccount = [SELECT Id, Name FROM Account];
 
 for(Account item : lstAccount) {
@@ -387,7 +387,7 @@ for(Account item : lstAccount) {
 
 ## Update
 
-```soql
+```cls
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
 
 // When account have AnnualRevenue < 100, update the record to 500
@@ -399,7 +399,7 @@ for(Account item : lstAccount) {
 
 ## Delete
 
-```soql
+```cls
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
 
 // When account have AnnualRevenue < 100, delete the record
