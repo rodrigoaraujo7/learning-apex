@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://logodownload.org/wp-content/uploads/2020/04/salesforce-logo.png" alt="Logo" width="250">
   <br>
-  A repository for learning Apex
+  A repository to learning Apex
   <br>
 </h1>
 
