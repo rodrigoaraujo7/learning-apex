@@ -407,3 +407,20 @@ for(Account item : lstAccount) {
     delete item;
 }
 ```
+
+## Try Catch 👉 <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm">Exception Class</a>
+
+```cls
+try {
+    // Code block
+  } catch(Exception type) { // Error case
+    // Code block
+}
+
+try {
+    integer calc = 10/0;
+    system.debug('🟣 Calc done successfully: ' + calc);
+} catch(MathException CalcError) {
+    system.debug('🔴 Error in calc!');
+}
+```
