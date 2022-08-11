@@ -384,6 +384,17 @@ for(Account item : lstAccount) {
     system.debug(item.Name);
 }
 ```
+## Insert
+
+```cls
+List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+
+// When account have AnnualRevenue < 100, insert the record to 500
+for(Account item : lstAccount) {
+    item.AnnualRevenue = 500;
+    insert item;
+}
+```
 
 ## Update
 
