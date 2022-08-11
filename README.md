@@ -380,9 +380,7 @@ system.debug(lstAccount);
 ```cls
 List<Account> lstAccount = [SELECT Id, Name FROM Account];
 
-for(Account item : lstAccount) {
-    system.debug(item.Name);
-}
+system.debug(lstAccount);
 ```
 ## Insert
 
