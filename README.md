@@ -387,36 +387,45 @@ for(Account item : lstAccount) {
 ## Insert
 
 ```cls
+// With query (To filter the list )
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+// Whitout query
+List<Account> lstAccount = new List<Account>();
 
-// When account have AnnualRevenue < 100, insert the record to 500
 for(Account item : lstAccount) {
-    item.AnnualRevenue = 500;
-    insert item;
+	Account acc = new Account();
+	acc.Name = 'Nome Xpto';
+	lstAccount.add(acc);
 }
+
+insert lstAccount;
 ```
 
 ## Update
 
 ```cls
+// With query (To filter the list )
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+// Whitout query
+List<Account> lstAccount = new List<Account>();
 
-// When account have AnnualRevenue < 100, update the record to 500
 for(Account item : lstAccount) {
-    item.AnnualRevenue = 500;
-    update item;
+	Account acc = new Account();
+	acc.Name = 'Nome Xpto';
+	lstAccount.add(acc);
 }
+
+update lstAccount;
 ```
 
 ## Delete
 
 ```cls
+// With query to filter the list
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
 
 // When account have AnnualRevenue < 100, delete the record
-for(Account item : lstAccount) {
-    delete item;
-}
+delete lstAccount;
 ```
 
 ## Try Catch 👉 <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm">Exception Class</a>
