@@ -368,13 +368,6 @@ FROM Opportunities)
   <br>
 </h1>
 
-```apex
-// Putting all records of an object inside a list in apex
-
-List<Account> lstAccount = [SELECT Name, Id FROM Account];
-system.debug(lstAccount);
-```
-
 ## Read
 
 ```cls
