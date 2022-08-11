@@ -170,6 +170,9 @@ colorCodes.put('Light Blue', '#6FA4F2'); // Seting two values
 colorCodes.put('Light Purple', '#884FBD'); // Seting others two values
 
 System.debug(colorCodes); // Will be return {Light Blue=#6FA4F2, Light Purple=#884FBD}
+
+String code = colorCodes.get('Light Blue');
+System.debug(code); // Will be return #6FA4F2
 ```
 
 ## Object
