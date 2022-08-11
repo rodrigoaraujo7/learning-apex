@@ -438,3 +438,10 @@ try {
     system.debug('🔴 Error in calc!');
 }
 ```
+
+<br>
+<div align="center">
+  <h1>Main order of executions</h1>
+  <img src="https://gcdnb.pbrd.co/images/ouh55yd0h79t.png?o=1" />
+</div>
+<br>
