@@ -445,3 +445,18 @@ try {
   <img src="https://gcdnb.pbrd.co/images/ouh55yd0h79t.png?o=1" />
 </div>
 <br>
+
+## Trigger
+
+```cls
+// Trigger structure
+trigger TriggerName on ObjectName(time) {
+    // Code block
+}
+
+// Now we will create a real trigger
+// After save, active the trigger
+trigger OpportunityTrigger on Opportunity(before insert) {
+    System.debug('actived trigger');
+}
+```
