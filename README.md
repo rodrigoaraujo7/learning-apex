@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://logodownload.org/wp-content/uploads/2020/04/salesforce-logo.png" alt="Logo" width="250">
   <br>
-  A repository for learning Apex
+  A repository to learning Apex
   <br>
 </h1>
 
@@ -170,6 +170,9 @@ colorCodes.put('Light Blue', '#6FA4F2'); // Seting two values
 colorCodes.put('Light Purple', '#884FBD'); // Seting others two values
 
 System.debug(colorCodes); // Will be return {Light Blue=#6FA4F2, Light Purple=#884FBD}
+
+String code = colorCodes.get('Light Blue');
+System.debug(code); // Will be return #6FA4F2
 ```
 
 ## Object
@@ -368,42 +371,77 @@ FROM Opportunities)
   <br>
 </h1>
 
-```apex
-// Putting all records of an object inside a list in apex
-
-List<Account> lstAccount = [SELECT Name, Id FROM Account];
-system.debug(lstAccount);
-```
-
 ## Read
 
 ```cls
 List<Account> lstAccount = [SELECT Id, Name FROM Account];
 
+system.debug(lstAccount);
+```
+## Insert
+
+```cls
+// With query (To filter the list )
+List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+// Whitout query
+List<Account> lstAccount = new List<Account>();
+
 for(Account item : lstAccount) {
-    system.debug(item.Name);
+	Account acc = new Account();
+	acc.Name = 'Nome Xpto';
+	lstAccount.add(acc);
 }
+
+insert lstAccount;
 ```
 
 ## Update
 
 ```cls
+// With query (To filter the list )
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
+// Whitout query
+List<Account> lstAccount = new List<Account>();
 
-// When account have AnnualRevenue < 100, update the record to 500
 for(Account item : lstAccount) {
-    item.AnnualRevenue = 500;
-    update item;
+	Account acc = new Account();
+	acc.Name = 'Nome Xpto';
+	lstAccount.add(acc);
 }
+
+update lstAccount;
 ```
 
 ## Delete
 
 ```cls
+// With query to filter the list
 List<Account> lstAccount = [SELECT Id, Name FROM Account WHERE AnnualRevenue < 100];
 
 // When account have AnnualRevenue < 100, delete the record
-for(Account item : lstAccount) {
-    delete item;
+delete lstAccount;
+```
+
+## Try Catch 👉 <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm">Exception Class</a>
+
+```cls
+try {
+    // Code block
+  } catch(Exception type) { // Error case
+    // Code block
+}
+
+try {
+    integer calc = 10/0;
+    system.debug('🟣 Calc done successfully: ' + calc);
+} catch(MathException CalcError) {
+    system.debug('🔴 Error in calc!');
 }
 ```
+
+<br>
+<div align="center">
+  <h1>Main order of executions</h1>
+  <img src="https://gcdnb.pbrd.co/images/ouh55yd0h79t.png?o=1" />
+</div>
+<br>
