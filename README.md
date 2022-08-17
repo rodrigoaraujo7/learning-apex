@@ -460,3 +460,55 @@ trigger OpportunityTrigger on Opportunity(before insert) {
     System.debug('actived trigger');
 }
 ```
+
+## Class with Trigger
+
+```cls
+// Class File (LeadHandler.cls)
+public class LeadHandler {
+    // Methods to before triggers
+    public static void leadBefore(List<Lead> listLead) {
+        // Phone and Cellphone fields validation
+        for(Lead itemLead : listLead) {
+            if(itemLead.Phone == null && itemLead.MobilePhone == null) {
+                itemLead.addError('Preencha o campo Telefone'); 
+            }
+        }
+
+        // CPF field validation
+        for(Lead itemLead : listLead) {
+            if(itemLead.CPF__c == null) {
+                itemLead.addError('Preencha o campo CPF');
+            }
+        }
+    }
+    
+    // Methods to after triggers
+    public static void leadAfter(List<Lead> listLead) {
+        // When Annual Revenue > 50000 Create new Task
+        for(Lead itemLead: listLead) {
+            if(itemLead.AnnualRevenue > 50000) {
+                Task newTask = new Task();
+                newTask.subject = 'Create new task';
+                insert newTask;
+            }
+        }
+    }
+}
+```
+```cls
+// Creating a trigger and put the times
+trigger LeadTrigger on Lead(before insert, before update, after insert, after update) {
+    if(Trigger.isBefore) { // Time when this method will be function
+        if(Trigger.isInsert) {
+            LeadHandler.leadBefore(Trigger.new); // Executing the method
+        } else if(Trigger.isUpdate) {
+            LeadHandler.leadBefore(Trigger.new);
+        }
+    } else if(Trigger.isAfter) {
+        if(Trigger.isInsert) {
+            LeadHandler.leadAfter(Trigger.new);
+        } else if(Trigger.isUpdate) {}
+    }
+}
+```
