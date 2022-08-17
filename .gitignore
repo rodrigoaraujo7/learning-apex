@@ -6,7 +6,6 @@
 .husky
 .vscode/
 config/
-force-app/
 .sf/
 .sfdx/
 .localdevserver/
