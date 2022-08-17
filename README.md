@@ -481,17 +481,31 @@ public class LeadHandler {
                 itemLead.addError('Preencha o campo CPF');
             }
         }
+
+        // Sets "small company" when entering condition
+        for(Lead itemLead: listLead) {
+            if(itemLead.NumberOfEmployees < 1000) {
+                itemLead.TamanhoEmpresa__c = 'Empresa pequena';
+            }
+        }
     }
     
     // Methods to after triggers
     public static void leadAfter(List<Lead> listLead) {
         // When Annual Revenue > 50000 Create new Task
+        List<Task> lstTaskInsert = new List<Task>();
         for(Lead itemLead: listLead) {
             if(itemLead.AnnualRevenue > 50000) {
                 Task newTask = new Task();
                 newTask.subject = 'Create new task';
-                insert newTask;
+                lstTaskInsert.add(newTask);
             }
+        } // insert lstTaskInsert; 
+        // Will be inserted outside the For for good practices
+        
+        // If lstTaskInsert isn't empty insert the task
+        if(!lstTaskInsert.isEmpty()) {
+            insert lstTaskInsert;
         }
     }
 }
