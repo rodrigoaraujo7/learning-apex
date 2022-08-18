@@ -526,3 +526,35 @@ trigger LeadTrigger on Lead(before insert, before update, after insert, after up
     }
 }
 ```
+
+## Test
+```cls
+// Calculator.cls
+public class Calculator {
+    public static Integer addition(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue + secondValue;        
+        return result;
+    }
+
+    public static Integer subtract(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue - secondValue;
+        return result;
+    }
+}
+```
+```cls
+// CalculatorTest.cls
+
+// Now, we will test the code.
+// In the other file, let's create another class 
+// To see if the code is working
+@isTest
+public class CalculatorTest {
+	@isTest
+    public static void testAddMethod() {
+        Integer result = Calculator.addition(1, 1);
+	// Case the result isn't 2, return message error
+        system.assert(result == 2, '🔴 Unexpected result');
+    }
+}
+```
