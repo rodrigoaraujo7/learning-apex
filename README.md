@@ -564,7 +564,7 @@ public class Calculator {
 // To see if the code is working
 @isTest
 public class CalculatorTest {
-	@isTest
+    @isTest
     public static void testAddMethod() {
         Integer result = Calculator.addition(1, 1);
         system.assert(result == 2, '🔴 Unexpected result');
