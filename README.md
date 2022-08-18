@@ -540,6 +540,20 @@ public class Calculator {
         Integer result = firstValue - secondValue;
         return result;
     }
+
+    public static Integer multiplication(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue * secondValue;
+        return result;
+    }
+
+    public static Integer division(Integer firstValue, Integer secondValue) {
+        if (secondValue == 0) {
+            system.debug('Não pode dividir por 0');
+            return 0;
+        } else {
+            return firstValue / secondValue;
+        }
+    }
 }
 ```
 ```cls
@@ -553,8 +567,28 @@ public class CalculatorTest {
 	@isTest
     public static void testAddMethod() {
         Integer result = Calculator.addition(1, 1);
-	// Case the result isn't 2, return message error
         system.assert(result == 2, '🔴 Unexpected result');
+    }
+
+    @isTest
+    public static void testSubtractMethod() {
+        Integer result = Calculator.subtract(12, 2);
+        system.assertEquals(10, result, '🔴 Unexpected result');
+    }
+
+    @isTest
+    public static void testMultiplicationMethod() {
+        Integer result = Calculator.multiplication(2, 2);
+        system.assert(result == 4, '🔴 Unexpected result');
+    }
+
+    @isTest
+    public static void testDivisionMethod() {
+        Integer resultDivideByZero = Calculator.division(10, 0);
+        system.assert(resultDivideByZero == 0, '🔴 Unexpected result');
+
+        Integer result = Calculator.division(10, 2);
+        system.assert(result == 5, '🔴 Unexpected result');
     }
 }
 ```
