@@ -594,7 +594,8 @@ public class CalculatorTest {
 
 <br>
 <div align="center">
-  <h1>Main order of executions</h1>
+  <h1>Apex with Aura</h1>
+  🦄 <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm">Callback Documentation</a>
 </div>
 <br>
 
@@ -629,8 +630,63 @@ public class OpportunityC {
     // This is a simple card with a default configurations, nothing special
     <lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
     	<div class="slds-p-arround_medium">
-        	Lista de Oportunidades
         </div>
     </lightning:card>
 </aura:component>
+```
+```js
+// Controller.js
+({
+    // Component => Allows access the aura component
+    // Event => Allows access the javascript
+    // Helper => Allows access the helper functions
+    doInit : function(component, event, helper) {
+        helper.getOpportunities(component);
+    }
+})
+```
+```js
+// Helper.js
+({
+    // Is important the helper also can manipulate the component
+    getOpportunities : function(component) {
+    console.log('Estou sendo no helper - Invocação do Yrra =D');
+        
+    // Using the Apex OpportunityC class's method
+    // like a attribute's component
+    let action = component.get('c.getOpportunitiesNV');
+        
+    // After execute the apex method (Call the data)
+    // Verify the answer of the server (SUCCESS - ERROR - INCOMPLETE) 
+    action.setCallback(this, (response) => {
+    	// Receive a answer
+        let state = response.getState();            
+            
+         if(state == "SUCCESS") { // Verify if the answer is SUCCESS
+	      // Assign the value to opps
+              component.set("v.opps", response.getReturnValue());
+              console.log(response.getReturnValue());
+        }
+     });
+        
+     // Execute the function
+     // Without it we'll never get an answer
+     $A.enqueueAction(action);
+    }
+})
+```
+```html
+<!-- Aura Component -->
+<lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
+    	<div class="slds-p-arround_medium">
+            <!-- aura:interaion receives the list of opportunities -->
+            <!-- this var is for to refs the files -->
+            <aura:iteration items="{!v.opps}" var="opp">
+                <!-- Here we're executing all the -->
+                <!-- opportunities inside the list -->
+                <!-- but only their name -->
+            	<p>{!opp.Name}</p>
+            </aura:iteration>
+        </div>
+ </lightning:card>
 ```
