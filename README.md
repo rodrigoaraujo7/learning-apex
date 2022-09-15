@@ -6,10 +6,30 @@
 </h1>
 
 <p align="center">
-    <a href="https://developer.salesforce.com/docs/atlas.en-us.238.0.apexref.meta/apexref/apex_ref_guide.htm">Apex Reference Guide</a>
+    <a href="https://developer.salesforce.com/docs/atlas.en-us.238.0.apexref.meta/apexref/apex_ref_guide.htm" target="_blank">Apex Reference Guide</a>
+    |
+    <a href="https://developer.salesforce.com/docs/component-library/overview/components" target="_blank">Aura Components Reference Guide</a>
 </p>
 
-## Hello World!
+<div align="center">
+	
+| Apex   | Soql | Apex with SOQL | Trigger | Apex with Aura | 
+| :---------- | :--------- | :---------------------------------- | :---- | :---- |
+| [`Variables`](#variables)                               | [`Select & From`](#select--from)                  | [`Read`](#read)                            | [`Main order of executions`](#main-order-of-executions) | [`Callback`](#apex-with-aura) |
+| [`Math Methods`](#math-methods)                         | [`Where`](#where)                                 | [`Insert`](#insert)                        | [`Trigger`](#trigger)                                   |  
+| [`Conditional in variables`](#conditional-in-variables) | [`Where And`](#where-and)                         | [`Update`](#update)                        | [`Class with Trigger`](#class-with-trigger)             |  
+| [`Conditional`](#conditional)                           | [`Like`](#like)                                   | [`Delete`](#delete)                        | [`Test`](#test)                                         |  
+| [`Loops`](#loops)                                       | [`Order by`](#order-by)                           | [`Try Catch`](#try-catch--exception-class) |                                                          
+| [`List`](#list)                                         | [`Group by`](#group-by)                           |                                                                                                     
+| [`Set`](#set)                                           | [`Limit`](#limit)                                 |                                                                                                    
+| [`Map`](#map)                                           | [`Count Sum Min Max Avg`](#count-sum-min-max-avg) |                                                                                                    
+| [`Object`](#object)                                     | [`Subquery`](#subquery)                           |                                                                                        
+
+</div>
+
+<br/>
+
+## Hello World
 
 ```cls
 // Remember to put ";"
