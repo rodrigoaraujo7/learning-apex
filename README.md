@@ -620,6 +620,12 @@ public class OpportunityC {
     // And here is a attribute 
     <aura:attribute name="opps" type="Opportunity[]" />
     
+    // Now we'll joke with lifecycle
+    // Name => When the component start
+    // Value => On this aura component
+    // Action => Execute my function doInit()
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
     // This is a simple card with a default configurations, nothing special
     <lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
     	<div class="slds-p-arround_medium">
