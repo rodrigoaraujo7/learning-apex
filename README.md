@@ -591,3 +591,40 @@ public class CalculatorTest {
     }
 }
 ```
+
+<br>
+<div align="center">
+  <h1>Main order of executions</h1>
+</div>
+<br>
+
+```cls
+// Yet the return doesn't "return" anything
+// but now using the aura we will go change that
+
+// Apex Class
+public class OpportunityC {
+    @AuraEnabled // This is placed here to we can use on Aura and on LWC
+    public static List<Opportunity> getOpportunitiesNV() {
+        return [SELECT Name, Amount, StageName, CloseDate 
+                FROM Opportunity 
+                WHERE StageName = 'Closed Won'
+		Order By createdDate DESC LIMIT 5];
+    }
+}
+```
+```html
+// In the aura:component we used the controller to
+// We can use the class we created above
+<aura:component controller="OpportunityC" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    // And here is a attribute 
+    <aura:attribute name="opps" type="Opportunity[]" />
+    
+    // This is a simple card with a default configurations, nothing special
+    <lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
+    	<div class="slds-p-arround_medium">
+        	Lista de Oportunidades
+        </div>
+    </lightning:card>
+</aura:component>
+```
