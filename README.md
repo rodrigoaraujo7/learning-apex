@@ -722,6 +722,8 @@ public class OpportunityC {
 
 ## First Step
 ```html
+<!-- app.html -->
+
 <!-- 
 LWC is literally html css and javascript 
 but with some small differences
@@ -730,16 +732,16 @@ NOTE: The file name is equal at the component,
 only change the extension file - EX: app.html app.css app.html
 -->
 
-<!-- app.html -->
 <template>
      <!-- template is your tag main, all your html is placed here -->
      <!-- code block -->
 </template>
 ```
 ```js
+// app.js
+
 // Here your js, hi's like a React
 
-// app.js
 import { LightningElement } from "lwc"; // You need import that to use lwc, else he will be return error
 
 // Here we creating a class with a some props
@@ -750,4 +752,24 @@ import { LightningElement } from "lwc"; // You need import that to use lwc, else
 export default class App extends LightningElement {
      // code block
 }
+```
+
+## Variables
+
+```js
+// app.js
+
+// Here we'll learn a "new" method to declare variable
+name = 'Rodrigo';
+age = 19
+
+// Yes, only this! Now we'll execute that on html
+```
+```html
+<template>
+   {name}
+   {age}
+   
+   <!-- No comments -->
+</template>
 ```
