@@ -711,3 +711,42 @@ public class OpportunityC {
         </div>
  </lightning:card>
 ```
+
+<br>
+<div align="center">
+  <h1>LWC</h1>
+  🤖 <a href="https://developer.salesforce.com/docs/component-library/documentation/en/lwc">documentation</a>
+</div>
+<br>
+
+## First Step
+```html
+<!-- 
+LWC is literally html css and javascript 
+but with some small differences
+
+NOTE: The file name is equal at the component, 
+only change the extension file - EX: app.html app.css app.html
+-->
+
+<!-- app.html -->
+<template>
+     <!-- template is your tag main, all your html is placed here -->
+     <!-- code block -->
+</template>
+```
+```js
+// Here your js, hi's like a React
+
+// app.js
+import { LightningElement } from "lwc"; // You need import that to use lwc, else he will be return error
+
+// Here we creating a class with a some props
+// Export is used to we can literally export the class
+// Default Class is a default configurations that the LWC available to us 
+// App is our class name => NOTE: Important his name is equal our file name
+// extends LightningElement we're using the import on the first line
+export default class App extends LightningElement {
+     // code block
+}
+```
