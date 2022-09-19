@@ -763,7 +763,7 @@ export default class App extends LightningElement {
 name = 'Rodrigo';
 age = 19
 
-// Yes, only this! Now we'll execute that on html
+// Yes, only this! Now we'll run that in the html
 ```
 ```html
 <template>
@@ -771,5 +771,24 @@ age = 19
    {age}
    
    <!-- No comments -->
+</template>
+```
+
+## Object
+
+```js
+// app.js
+
+// Here we'll work with a object
+person = {
+    name: 'Rodrigo',
+    age: 19
+} // And let's run that in the html
+```
+```html
+<template>
+   <!-- {objectName.variableName} -->
+   {person.name}
+   {person.age}   
 </template>
 ```
