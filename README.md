@@ -766,6 +766,8 @@ age = 19
 // Yes, only this! Now we'll run that in the html
 ```
 ```html
+<!-- app.html -->
+
 <template>
    {name}
    {age}
@@ -786,9 +788,57 @@ person = {
 } // And let's run that in the html
 ```
 ```html
+<!-- app.html --> 
+
 <template>
    <!-- {objectName.variableName} -->
    {person.name}
    {person.age}   
+</template>
+```
+
+## LWC if
+
+```html
+<!-- app.html -->
+
+<template>
+   <!-- We're speaking => If the variable "visible" is true, run that -->
+   <template if:true={visible}>
+        <h1>Hello World</h1>
+   </template>   
+	
+   <!-- But where's the variable "visible" -->
+   <!-- We're go create she now in the javascript -->
+</template>
+```
+```js
+// app.js
+
+// Creating the variable
+visible = true
+```
+## Onclick
+
+```js
+// app.js
+
+visible = true
+// Here we'll create a function to use in a button
+click() { // This is a simples javascript code, but is a good example
+     this.visible = !this.visible
+}
+```
+```html
+<!-- app.html -->
+
+<template>
+   <!-- We're speaking => If the variable "visible" is true, run that -->
+   <template if:true={visible}>
+        <h1>Hello World</h1>
+   </template>   
+   
+   <!-- Now I create this button upon receiving that the function we created -->
+   <lightning-button label="Magic Destruction" onclick={click} class="slds-p-around_medium"></lightning-button>
 </template>
 ```
