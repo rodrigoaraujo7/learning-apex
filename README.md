@@ -12,10 +12,10 @@
 </p>
 
 <div align="center">
-	
-| Apex   | Soql | Apex with SOQL | Trigger | Apex with Aura | 
-| :---------- | :--------- | :---------------------------------- | :---- | :---- |
-| [`Hello World`](#hello-world)                           | [`Select & From`](#select--from)                  | [`Read`](#read)                            | [`Main order of executions`](#main-order-of-executions) | [`Callback`](#apex-with-aura) |
+
+| Apex   | Soql | Apex with SOQL | Trigger | Apex with Aura | LWC |
+| :---------- | :--------- | :---------------------------------- | :---- | :---- | :--------- 
+| [`Hello World`](#hello-world)                           | [`Select & From`](#select--from)                  | [`Read`](#read)                            | [`Main order of executions`](#main-order-of-executions) | [`Callback`](#apex-with-aura) | [`First steps`](#first-step)
 | [`Variables`](#variables)                               | [`Where`](#where)                                 | [`Insert`](#insert)                        | [`Trigger`](#trigger)                                   |  
 | [`Math Methods`](#math-methods)                         | [`Where And`](#where-and)                         | [`Update`](#update)                        | [`Class with Trigger`](#class-with-trigger)             |  
 | [`Conditional in variables`](#conditional-in-variables) | [`Like`](#like)                                   | [`Delete`](#delete)                        | [`Test`](#test)                                         |  
@@ -25,6 +25,7 @@
 | [`Set`](#set)                                           | [`Count Sum Min Max Avg`](#count-sum-min-max-avg) |                                                                                                    
 | [`Map`](#map)                                           | [`Subquery`](#subquery)                           |  
 | [`Object`](#object)                                     |                                                                                    
+
 
 </div>
 
