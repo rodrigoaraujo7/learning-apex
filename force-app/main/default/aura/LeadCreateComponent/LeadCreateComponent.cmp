@@ -1,0 +1,7 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >    
+    <div class="slsd-box sldx-theme_default">               
+        <lightning:input name="{!v.name}" label="Name" />
+        <lightning:input name="{!v.company}" label="Company" />
+        <lightning:input name="{!v.status}" label="Status" />
+    </div>
+</aura:component>

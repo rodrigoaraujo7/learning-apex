@@ -1,0 +1,41 @@
+.THIS .table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.1 );
+}
+
+.THIS .fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.THIS .fl-table td, .THIS .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.THIS .fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.THIS .fl-table thead th {
+    color: #ffffff;
+    background: #54789c;
+}
+
+
+.THIS .fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.THIS .fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}

@@ -1,0 +1,19 @@
+<template>
+	<lightning-card title="Calculator">
+		<div class="slds-m-around_medium">
+            <h1>{result}</h1>
+
+            <lightning-input type="text" name="firstValue" label="Number 1" class="firstValue"></lightning-input>
+            <lightning-input type="text" name="secondValue" label="Number 2" class="secondValue"></lightning-input>
+            <lightning-input type="text" name="op" label="Operator ( + - x /)" class="op"></lightning-input>
+            <br />
+
+            <div class="flex">
+                <div class="content">
+                    <lightning-button variant="base" label="Clear" onclick={handleClear} class="slds-m-top_medium slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand" label="=" onclick={handleCalc} class="slds-m-top_medium"></lightning-button>
+                </div>
+            </div>
+		</div>
+	</lightning-card>
+</template>

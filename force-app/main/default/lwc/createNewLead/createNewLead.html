@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="New Lead" icon-name="action:new_lead">
+        <div class="slds-m-around_medium">
+            <!-- Here's my form -->
+            <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field field-name="Company"></lightning-input-field>
+                <lightning-input-field field-name="Status"></lightning-input-field>
+
+                <div class="flex">
+                    <div class="content">
+                        <lightning-button variant="base" label="Clear" onclick={handleClear} class="slds-m-top_medium slds-m-right_small"></lightning-button>
+                        <lightning-button label="Create" type="submit" variant="brand"></lightning-button>
+                    </div>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

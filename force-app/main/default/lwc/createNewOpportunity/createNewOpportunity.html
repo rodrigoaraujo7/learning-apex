@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="New Opportunity" icon-name="action:new_opportunity">
+        <div class="slds-m-around_medium">
+            <!-- Here's my form -->
+            <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field field-name="CloseDate"></lightning-input-field>
+                <lightning-input-field field-name="StageName"></lightning-input-field>
+
+                <div class="flex">
+                    <lightning-button label="Create" type="submit" variant="brand"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+
+            <lightning-record-view-form class="slds-m-top_medium" object-api-name="Opportunity" record-id={recordId}>
+                <lightning-output-field field-name="Id"></lightning-output-field>
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="CloseDate"></lightning-output-field>
+                <lightning-output-field field-name="StageName"></lightning-output-field>
+            </lightning-record-view-form>
+        </div>
+    </lightning-card>
+</template>

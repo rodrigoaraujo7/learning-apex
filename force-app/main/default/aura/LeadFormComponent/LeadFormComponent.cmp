@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global" >
+    <aura:attribute name="pageReference" type="Object" /> 
+	<lightning:navigation aura:id="navService"/> 
+    
+    
+    <lightning:card title="Novo Lead">
+    	<div class="slds-p-around_medium">
+            <lightning:recordEditForm 
+            	objectApiName="Lead"
+                aura:id="recordEditForm"
+                onsubmit="{!c.handleSubmit}"
+				onsuccess="{!c.handleSuccess}"    
+				onerror="{!c.handleError}"
+            >
+                <lightning:messages class="slds-p-around_medium"/>
+            	
+                <lightning:inputField fieldName="Name" aura:id="field"/>
+                <lightning:inputField fieldName="Company" aura:id="field"/>
+                <lightning:inputField fieldName="MobilePhone" aura:id="field"/>
+                <lightning:inputField fieldName="Rating" aura:id="field"/>
+                
+                <lightning:button class="slds-m-top_small" onclick="{!c.handleReset}" label="Limpar"/>
+                <lightning:button class="slds-m-top_small" type="submit" variant="brand" label="Criar Lead"/>
+            </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+</aura:component>

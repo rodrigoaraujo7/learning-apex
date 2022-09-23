@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="New Account" icon-name="action:new_account">
+        <div class="slds-m-around_medium">
+            <!-- Here's my form -->
+            <lightning-record-edit-form object-api-name="Account" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Name" value="Bob Esponjudo"></lightning-input-field>
+                <lightning-input-field field-name="Phone" value="123"></lightning-input-field>
+                <lightning-input-field field-name="Rating" value="Warm"></lightning-input-field>
+
+                <lightning-button label="Clear" onclick={handleClear}></lightning-button>
+                <lightning-button label="Create" type="submit" variant="brand"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

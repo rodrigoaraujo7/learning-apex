@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="visivel" type="boolean" default="true" description="Isso é falto, mas pode ser true!" />
+    <div class="slsd-box sldx-theme_default">
+        <lightning:button variant="base" label="Aparece" title="Base action" onclick="{! c.apareceClick}"/>
+        <lightning:button variant="base" label="Desaparece" title="Base action" onclick="{! c.escondeClick}"/>
+        <br />
+        
+        <aura:if isTrue="{!v.visivel}">
+            <img src="{!$Resource.HelloWorld}" />
+        </aura:if>
+    </div>
+</aura:component>

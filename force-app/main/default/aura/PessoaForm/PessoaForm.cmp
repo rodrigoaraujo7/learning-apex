@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	<!-- nomeCompleto -->
+    <aura:attribute name="nomeCompleto" type="String"  />
+    <aura:attribute name="visivel" type="Boolean" default="false" />
+    
+    <lightning:card title="Usando Input">
+    	<div class="slds-p-around_medium">
+            <!--atributo aura:id="nomeIdentificador" equivalente ao id HTML(JS ->> getElementById) -->
+            <lightning:input class="slds-m-bottom_small" type="text" label="Nome:" placeholder="Apenas o primeiro nome..." aura:id="nome" />
+            
+            <lightning:input class="slds-m-bottom_small" type="text" label="Sobrenome:" placeholder="Apenas o sobrenome..." aura:id="sobrenome" />
+            <!-- montar o campo sobrenome txt e no controlador exibir via console.log o valor do campo-->            
+            <lightning:button variant="brand" label="Clique Aqui" title="Clique Aqui" onclick="{!c.onClick}"/>
+            <!-- aura:if -->
+            <aura:if isTrue="{!v.visivel}">
+                <p class="slds-text-body_small slds-m-top_x-small">Olá {!v.nomeCompleto}</p>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

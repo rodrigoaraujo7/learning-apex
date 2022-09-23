@@ -1,0 +1,29 @@
+<aura:component controller="AccountListC" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="acc" type="Account[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card iconName="standard:account" title="Lista de contas">
+    	<div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>OwnerId</th>
+                        <th>Telefone</th>
+                        <th>Data de Criação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.acc}" var="accItem">
+                        <tr>
+                            <td>{!accItem.Name}</td>
+                            <td>{!accItem.OwnerId}</td>
+                            <td>{!accItem.Phone}</td>
+                            <td>{!accItem.CreatedDate}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="New Lead - Ex 6" icon-name="standard:record">
+        <div class="slds-m-around_medium">
+            <lightning-input label="First Name" name="FirstName" onchange={handleInputChange} class="slds-m-bottom_x-small"></lightning-input>
+
+            <lightning-input label="Last Name" name="LastName" onchange={handleInputChange} class="slds-m-bottom_x-small"></lightning-input>
+
+            <lightning-input type="phone" label="Company" name="Company" onchange={handleInputChange} class="slds-m-bottom_x-small"></lightning-input>
+
+            <lightning-combobox
+                name="Status"
+                label="Status"
+                value={value}
+                onchange={handleInputChange}
+                options={statusOptions}
+            >
+            </lightning-combobox>
+
+            <lightning-button label="Create" variant="brand" onclick={createLead}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

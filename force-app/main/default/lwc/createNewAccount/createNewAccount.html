@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="New Account" icon-name="action:new_account">
+        <div class="slds-m-around_medium">
+            <!-- Here's my form -->
+            <lightning-record-edit-form object-api-name="Account" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+
+                <div class="flex">
+                    <lightning-button label="Create" type="submit" variant="brand"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+
+            <lightning-record-view-form class="slds-m-top_medium" object-api-name="Account" record-id={recordId}>
+                <lightning-output-field field-name="Name"></lightning-output-field>
+            </lightning-record-view-form>
+        </div>
+    </lightning-card>
+</template>

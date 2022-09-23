@@ -1,0 +1,13 @@
+<template>
+	<lightning-card title="Calcular Imc">
+		<div class="slds-p-around_medium">
+			<lightning-input type="text" name="name" label="Nome" onchange={pickInputValue}></lightning-input>
+			<lightning-input type="text" name="height" label="Altura" onchange={pickInputValue}></lightning-input>
+			<lightning-input type="text" name="weight" label="Peso" onchange={pickInputValue}></lightning-input>
+
+			<lightning-button label="Calcular" onclick={calcImc}></lightning-button>
+
+			<p class="message">{msg}</p>
+		</div>
+	</lightning-card>
+</template>

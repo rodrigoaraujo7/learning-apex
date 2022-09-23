@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global" >
+    <aura:attribute name="pageReference" type="Object" />
+    <lightning:navigation aura:id="navService" />
+    
+    <lightning:card title="Nova Conta">
+        <div class="slds-p-arround_medium">
+            <lightning:recordEditForm objectApiName="Account" aura:id="recordIdForm" onsuccess="{!c.handleSuccess}">
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="Rating" />
+                <lightning:inputField fieldName="Phone" />
+                
+                <lightning:button class="slds-m-top_small slds-m-left_small" type="submit" variant="brand" label="Cria" />
+            </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+</aura:component>

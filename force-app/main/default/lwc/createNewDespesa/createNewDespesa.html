@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="New Despesa">
+        <div class="slds-m-around_medium">
+            <!-- Here's my form -->
+            <lightning-record-edit-form object-api-name="Despesa__c" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Nome__c"></lightning-input-field>
+                <lightning-input-field field-name="Data__c"></lightning-input-field>
+                <lightning-input-field field-name="ValorUnitario__c"></lightning-input-field>
+                <lightning-input-field field-name="Valor__c"></lightning-input-field>
+
+                <div class="flex">
+                    <lightning-button label="Create" type="submit" variant="brand"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

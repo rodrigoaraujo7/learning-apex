@@ -1,0 +1,18 @@
+<aura:component controller="OpportunityC" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="opps" type="Opportunity[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
+    	<div class="slds-p-arround_medium">
+            <!-- aura:interaion recebe a lista de oportunidades -->
+            <!-- esse var serve para referenciar os campos -->
+            <aura:iteration items="{!v.opps}" var="opp">
+                <!-- Aqui estamos executando todas as -->
+                <!-- oportunidades que estão dentro da lista -->
+                <!-- mas aparece apenas o nome delas -->
+            	<p>{!opp.Name}</p>
+            </aura:iteration>
+        </div>
+    </lightning:card>
+</aura:component>

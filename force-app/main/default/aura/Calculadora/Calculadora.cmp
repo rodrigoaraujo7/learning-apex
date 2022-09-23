@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="firstValue" type="integer" description="This is a number!" />
+    <aura:attribute name="secondValue" type="integer" description="This is a number!" />
+    <aura:attribute name="result" type="Integer" default="0" />
+    
+    <div>        
+        <lightning:input name="input1" label="Digite o Primeiro Numero" value="{!v.firstValue}" />
+        <lightning:input name="input2" label="Digite o Segundo Numero" value="{!v.secondValue}" />
+		<span class="value">{!v.result}</span>
+        <br />
+        <lightning:button variant="brand" label="Somar" title="Brand action" onclick="{! c.sumClick }" />
+        <lightning:button variant="brand" label="Subtrair" title="Brand action" onclick="{! c.subClick }" />
+        <lightning:button variant="brand" label="Multiplicar" title="Brand action" onclick="{! c.multClick }" />
+        <lightning:button variant="brand" label="Dividir" title="Brand action" onclick="{! c.divClick }" />
+    </div>
+</aura:component>

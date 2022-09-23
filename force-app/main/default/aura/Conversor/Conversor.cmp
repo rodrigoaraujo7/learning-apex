@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="firstValue" type="integer" description="This is a number!" />
+    <aura:attribute name="result" type="Integer" default="0" />
+    
+    <div>        
+        <lightning:input name="input1" label="Digite o valor em Horas" value="{!v.firstValue}" />
+		<span class="value">{!v.result}</span>
+        <br />
+        <lightning:button variant="brand" label="Converter em segundos" title="Brand action" onclick="{! c.segClick }" />
+        <lightning:button variant="brand" label="Converter em minutos" title="Brand action" onclick="{! c.minClick }" />
+        <br />
+        <lightning:button variant="brand" label="Converter em dias" title="Brand action" onclick="{! c.dayClick }" />
+        <lightning:button variant="brand" label="Converter em meses" title="Brand action" onclick="{! c.weekClick }" />
+    </div>
+</aura:component>
