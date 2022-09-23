@@ -6,10 +6,32 @@
 </h1>
 
 <p align="center">
-    <a href="https://developer.salesforce.com/docs/atlas.en-us.238.0.apexref.meta/apexref/apex_ref_guide.htm">Apex Reference Guide</a>
+    <a href="https://developer.salesforce.com/docs/atlas.en-us.238.0.apexref.meta/apexref/apex_ref_guide.htm" target="_blank">Apex Reference Guide</a>
+    |
+    <a href="https://developer.salesforce.com/docs/component-library/overview/components" target="_blank">Aura Components Reference Guide</a>
 </p>
 
-## Hello World!
+<div align="center">
+
+| Apex   | Soql | Apex with SOQL | Trigger | Apex with Aura | LWC |
+| :---------- | :--------- | :---------------------------------- | :---- | :---- | :--------- 
+| [`Hello World`](#hello-world)                           | [`Select & From`](#select--from)                  | [`Read`](#read)                            | [`Main order of executions`](#main-order-of-executions) | [`Callback`](#apex-with-aura) | [`First steps`](#first-step)
+| [`Variables`](#variables)                               | [`Where`](#where)                                 | [`Insert`](#insert)                        | [`Trigger`](#trigger)                                   |                               | [`Variables`](#variables-1)
+| [`Math Methods`](#math-methods)                         | [`Where And`](#where-and)                         | [`Update`](#update)                        | [`Class with Trigger`](#class-with-trigger)             |                               | [`Object`](#object-1)
+| [`Conditional in variables`](#conditional-in-variables) | [`Like`](#like)                                   | [`Delete`](#delete)                        | [`Test`](#test)                                         |                               | [`LWC if`](#lwc-if)
+| [`Conditional`](#conditional)                           | [`Order by`](#order-by)                           | [`Try Catch`](#try-catch--exception-class) |                                                         |                               | [`Onclick`](#onclick) 
+| [`Loops`](#loops)                                       | [`Group by`](#group-by)                           |                                                                                                     
+| [`List`](#list)                                         | [`Limit`](#limit)                                 |                                                                                                    
+| [`Set`](#set)                                           | [`Count Sum Min Max Avg`](#count-sum-min-max-avg) |                                                                                                    
+| [`Map`](#map)                                           | [`Subquery`](#subquery)                           |  
+| [`Object`](#object)                                     |                                                                                    
+
+
+</div>
+
+<br/>
+
+## Hello World
 
 ```cls
 // Remember to put ";"
@@ -459,4 +481,364 @@ trigger TriggerName on ObjectName(time) {
 trigger OpportunityTrigger on Opportunity(before insert) {
     System.debug('actived trigger');
 }
+```
+
+## Class with Trigger
+
+```cls
+// Class File (LeadHandler.cls)
+public class LeadHandler {
+    // Methods to before triggers
+    public static void leadBefore(List<Lead> listLead) {
+        // Phone and Cellphone fields validation
+        for(Lead itemLead : listLead) {
+            if(itemLead.Phone == null && itemLead.MobilePhone == null) {
+                itemLead.addError('Preencha o campo Telefone'); 
+            }
+        }
+
+        // CPF field validation
+        for(Lead itemLead : listLead) {
+            if(itemLead.CPF__c == null) {
+                itemLead.addError('Preencha o campo CPF');
+            }
+        }
+
+        // Sets "small company" when entering condition
+        for(Lead itemLead: listLead) {
+            if(itemLead.NumberOfEmployees < 1000) {
+                itemLead.TamanhoEmpresa__c = 'Empresa pequena';
+            }
+        }
+    }
+    
+    // Methods to after triggers
+    public static void leadAfter(List<Lead> listLead) {
+        // When Annual Revenue > 50000 Create new Task
+        List<Task> lstTaskInsert = new List<Task>();
+        for(Lead itemLead: listLead) {
+            if(itemLead.AnnualRevenue > 50000) {
+                Task newTask = new Task();
+                newTask.subject = 'Create new task';
+                lstTaskInsert.add(newTask);
+            }
+        } // insert lstTaskInsert; 
+        // Will be inserted outside the For for good practices
+        
+        // If lstTaskInsert isn't empty insert the task
+        if(!lstTaskInsert.isEmpty()) {
+            insert lstTaskInsert;
+        }
+    }
+}
+```
+```cls
+// Creating a trigger and put the times
+trigger LeadTrigger on Lead(before insert, before update, after insert, after update) {
+    if(Trigger.isBefore) { // Time when this method will be function
+        if(Trigger.isInsert) {
+            LeadHandler.leadBefore(Trigger.new); // Executing the method
+        } else if(Trigger.isUpdate) {
+            LeadHandler.leadBefore(Trigger.new);
+        }
+    } else if(Trigger.isAfter) {
+        if(Trigger.isInsert) {
+            LeadHandler.leadAfter(Trigger.new);
+        } else if(Trigger.isUpdate) {}
+    }
+}
+```
+
+## Test
+```cls
+// Calculator.cls
+public class Calculator {
+    public static Integer addition(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue + secondValue;        
+        return result;
+    }
+
+    public static Integer subtract(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue - secondValue;
+        return result;
+    }
+
+    public static Integer multiplication(Integer firstValue, Integer secondValue) {
+        Integer result = firstValue * secondValue;
+        return result;
+    }
+
+    public static Integer division(Integer firstValue, Integer secondValue) {
+        if (secondValue == 0) {
+            system.debug('Não pode dividir por 0');
+            return 0;
+        } else {
+            return firstValue / secondValue;
+        }
+    }
+}
+```
+```cls
+// CalculatorTest.cls
+
+// Now, we will test the code.
+// In the other file, let's create another class 
+// To see if the code is working
+@isTest
+public class CalculatorTest {
+    @isTest public static void testAddMethod() {
+        Integer result = Calculator.addition(1, 1);
+        system.assert(result == 2, '🔴 Unexpected result');
+    }
+
+    @isTest public static void testSubtractMethod() {
+        Integer result = Calculator.subtract(12, 2);
+        system.assertEquals(10, result, '🔴 Unexpected result');
+    }
+
+    @isTest public static void testMultiplicationMethod() {
+        Integer result = Calculator.multiplication(2, 2);
+        system.assert(result == 4, '🔴 Unexpected result');
+    }
+
+    // IF ELSE Division
+    @isTest public static void testDivisionMethod() {        
+        Integer result = Calculator.division(10, 2);
+        system.assert(result == 5, '🔴 Unexpected result');
+    }
+    
+    @isTest public static void testDivisionByZeroMethod() {
+        Integer result = Calculator.division(10, 0);
+        system.assert(result == 0, '🔴 Unexpected result');
+    }
+}
+```
+
+<br>
+<div align="center">
+  <h1>Apex with Aura</h1>
+  🦄 <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm">Callback Documentation</a>
+</div>
+<br>
+
+```cls
+// Yet the return doesn't "return" anything
+// but now using the aura we will go change that
+
+// Apex Class
+public class OpportunityC {
+    @AuraEnabled // This is placed here to we can use on Aura and on LWC
+    public static List<Opportunity> getOpportunitiesNV() {
+        return [SELECT Name, Amount, StageName, CloseDate 
+                FROM Opportunity 
+                WHERE StageName = 'Closed Won'
+		Order By createdDate DESC LIMIT 5];
+    }
+}
+```
+```html
+// In the aura:component we used the controller to
+// We can use the class we created above
+<aura:component controller="OpportunityC" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    // And here is a attribute 
+    <aura:attribute name="opps" type="Opportunity[]" />
+    
+    // Now we'll joke with lifecycle
+    // Name => When the component start
+    // Value => On this aura component
+    // Action => Execute my function doInit()
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    // This is a simple card with a default configurations, nothing special
+    <lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
+    	<div class="slds-p-arround_medium">
+        </div>
+    </lightning:card>
+</aura:component>
+```
+```js
+// Controller.js
+({
+    // Component => Allows access the aura component
+    // Event => Allows access the javascript
+    // Helper => Allows access the helper functions
+    doInit : function(component, event, helper) {
+        helper.getOpportunities(component);
+    }
+})
+```
+```js
+// Helper.js
+({
+    // Is important the helper also can manipulate the component
+    getOpportunities : function(component) {
+    console.log('Estou sendo no helper - Invocação do Yrra =D');
+        
+    // Using the Apex OpportunityC class's method
+    // like a attribute's component
+    let action = component.get('c.getOpportunitiesNV');
+        
+    // After execute the apex method (Call the data)
+    // Verify the answer of the server (SUCCESS - ERROR - INCOMPLETE) 
+    action.setCallback(this, (response) => {
+    	// Receive a answer
+        let state = response.getState();            
+            
+         if(state == "SUCCESS") { // Verify if the answer is SUCCESS
+	      // Assign the value to opps
+              component.set("v.opps", response.getReturnValue());
+              console.log(response.getReturnValue());
+        }
+     });
+        
+     // Execute the function
+     // Without it we'll never get an answer
+     $A.enqueueAction(action);
+    }
+})
+```
+```html
+<!-- Aura Component -->
+<lightning:card iconName="standard:opportunity" title="Oportunidades fechadas">
+    	<div class="slds-p-arround_medium">
+            <!-- aura:interaion receives the list of opportunities -->
+            <!-- this var is for to refs the files -->
+            <aura:iteration items="{!v.opps}" var="opp">
+                <!-- Here we're executing all the -->
+                <!-- opportunities inside the list -->
+                <!-- but only their name -->
+            	<p>{!opp.Name}</p>
+            </aura:iteration>
+        </div>
+ </lightning:card>
+```
+
+<br>
+<div align="center">
+  <h1>LWC</h1>
+  🤖 <a href="https://developer.salesforce.com/docs/component-library/documentation/en/lwc">documentation</a>
+</div>
+<br>
+
+## First Step
+```html
+<!-- app.html -->
+
+<!-- 
+LWC is literally html css and javascript 
+but with some small differences
+
+NOTE: The file name is equal at the component, 
+only change the extension file - EX: app.html app.css app.html
+-->
+
+<template>
+     <!-- template is your tag main, all your html is placed here -->
+     <!-- code block -->
+</template>
+```
+```js
+// app.js
+
+// Here your js, hi's like a React
+
+import { LightningElement } from "lwc"; // You need import that to use lwc, else he will be return error
+
+// Here we creating a class with a some props
+// Export is used to we can literally export the class
+// Default Class is a default configurations that the LWC available to us 
+// App is our class name => NOTE: Important his name is equal our file name
+// extends LightningElement we're using the import on the first line
+export default class App extends LightningElement {
+     // code block
+}
+```
+
+## Variables
+
+```js
+// app.js
+
+// Here we'll learn a "new" method to declare variable
+name = 'Rodrigo';
+age = 19
+
+// Yes, only this! Now we'll run that in the html
+```
+```html
+<!-- app.html -->
+
+<template>
+   {name}
+   {age}
+   
+   <!-- No comments -->
+</template>
+```
+
+## Object
+
+```js
+// app.js
+
+// Here we'll work with a object
+person = {
+    name: 'Rodrigo',
+    age: 19
+} // And let's run that in the html
+```
+```html
+<!-- app.html --> 
+
+<template>
+   <!-- {objectName.variableName} -->
+   {person.name}
+   {person.age}   
+</template>
+```
+
+## LWC if
+
+```html
+<!-- app.html -->
+
+<template>
+   <!-- We're speaking => If the variable "visible" is true, run that -->
+   <template if:true={visible}>
+        <h1>Hello World</h1>
+   </template>   
+	
+   <!-- But where's the variable "visible" -->
+   <!-- We're go create she now in the javascript -->
+</template>
+```
+```js
+// app.js
+
+// Creating the variable
+visible = true
+```
+## Onclick
+
+```js
+// app.js
+
+visible = true
+// Here we'll create a function to use in a button
+click() { // This is a simples javascript code, but is a good example
+     this.visible = !this.visible
+}
+```
+```html
+<!-- app.html -->
+
+<template>
+   <!-- We're speaking => If the variable "visible" is true, run that -->
+   <template if:true={visible}>
+        <h1>Hello World</h1>
+   </template>   
+   
+   <!-- Now I create this button upon receiving that the function we created -->
+   <lightning-button label="Magic Destruction" onclick={click} class="slds-p-around_medium"></lightning-button>
+</template>
 ```
