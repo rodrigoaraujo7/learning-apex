@@ -818,6 +818,7 @@ person = {
 // Creating the variable
 visible = true
 ```
+
 ## Onclick
 
 ```js
@@ -840,5 +841,53 @@ click() { // This is a simples javascript code, but is a good example
    
    <!-- Now I create this button upon receiving that the function we created -->
    <lightning-button label="Magic Destruction" onclick={click} class="slds-p-around_medium"></lightning-button>
+</template>
+```
+
+## Object
+
+```js
+// product.js
+
+Ok, now I created a new file, and I named product.html product.js
+
+// Important to import  the api in this case
+import { LightningElement, api } from "lwc";
+
+export default class Product extends LightningElement {
+  productLst = [ // Here's a normal javascript object inside array
+    {id: 1, name: 'Headset', price: 250},
+    {id: 2, name: 'Mouse', price: 180},
+    {id: 3, name: 'Keyboard', price: 570},
+    {id: 4, name: 'Computer', price: 5200},
+  ]
+
+  // @api Is used to we can change this data in html
+  @api name
+  @api price
+}
+```
+
+```html
+<!-- product.html -->
+
+<!-- After that, we execute those variables with @api -->
+<template>
+  {name}
+  {price}
+</template>
+```
+
+```html
+<!-- app.html -->
+
+<template>
+  <lightning-card title="Comp filho">
+    <div class="slds-p-around_x-large">
+      <!-- c-product is a tag to we can import our data in the -->
+      <!-- product component! Notice here I can change the data! -->
+      <c-product name="Headset" price="1123213"></c-product>
+    </div>
+  </lightning-card>
 </template>
 ```
