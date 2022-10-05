@@ -1,19 +1,23 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class BasicCalculator extends LightningElement {
-    firstValue;
-    secondValue;
+    @api firstValue;
+    @api secondValue;
     op;
     result;
+
+    handleFirstValue(event) { this.firstValue = parseFloat(event.target.value) }
+    handleSecondValue(event) { this.secondValue = parseFloat(event.target.value) }
+
+    handleSum()  { this.op = '+'; console.log(this.op) }
+    handleSub()  { this.op = '-' }
+    handleMult() { this.op = 'x' }
+    handleDiv()  { this.op = '/' }
     
-    handleCalc() {
-        this.firstValue = +this.template.querySelector('.firstValue').value;
-        this.secondValue = +this.template.querySelector('.secondValue').value;
-        this.op = this.template.querySelector('.op').value;
-        
+    handleCalc() {       
         switch(this.op) {
             case '+':
-                this.result = +this.firstValue + +this.secondValue;
+                this.result = this.firstValue + this.secondValue;
                 break;
             case '-':
                 this.result = +this.firstValue - +this.secondValue;
@@ -22,7 +26,7 @@ export default class BasicCalculator extends LightningElement {
                 this.result = +this.firstValue * +this.secondValue;
                 break;
             case '/':
-                this.result = (parseFloat(this.firstValue) / parseFloat(this.secondValue)).toFixed(2);
+                this.result = (this.firstValue / this.secondValue).toFixed(2);
 
                 if(+this.secondValue == 0){
                     this.result = 'Não é possivel dividir por 0';
@@ -37,7 +41,10 @@ export default class BasicCalculator extends LightningElement {
     handleClear() {
         this.template.querySelector('.firstValue').value = '';
         this.template.querySelector('.secondValue').value = '';
-        this.template.querySelector('.op').value = '';
+        this.template.querySelector('.result').innerHTML = '';
+        
+        this.op = '';
+        this.result = '';
     }
 }
     
