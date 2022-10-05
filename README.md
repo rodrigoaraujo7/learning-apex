@@ -844,37 +844,30 @@ click() { // This is a simples javascript code, but is a good example
 </template>
 ```
 
-## Object
+## @api
 
 ```js
-// product.js
+// person.js
 
-Ok, now I created a new file, and I named product.html product.js
+// Ok, now I created a new file, and I named product.html product.js
 
 // Important to import  the api in this case
 import { LightningElement, api } from "lwc";
 
-export default class Product extends LightningElement {
-  productLst = [ // Here's a normal javascript object inside array
-    {id: 1, name: 'Headset', price: 250},
-    {id: 2, name: 'Mouse', price: 180},
-    {id: 3, name: 'Keyboard', price: 570},
-    {id: 4, name: 'Computer', price: 5200},
-  ]
-
+export default class Person extends LightningElement {
   // @api Is used to we can change this data in html
-  @api name
-  @api price
+  @api name = 'Rodrigo Araujo'
+  @api age = 19
 }
 ```
 
 ```html
-<!-- product.html -->
+<!-- person.html -->
 
 <!-- After that, we execute those variables with @api -->
 <template>
-  {name}
-  {price}
+  <h1>Name: {name}</h1>
+  <h3>Age: {age}</h3>
 </template>
 ```
 
@@ -882,11 +875,14 @@ export default class Product extends LightningElement {
 <!-- app.html -->
 
 <template>
-  <lightning-card title="Comp filho">
+  <lightning-card>
     <div class="slds-p-around_x-large">
-      <!-- c-product is a tag to we can import our data in the -->
-      <!-- product component! Notice here I can change the data! -->
-      <c-product name="Headset" price="1123213"></c-product>
+      <!-- c-person is a tag to we can import our data in the -->
+      <!-- person component -->
+      <c-person></c-person>
+    
+      <!-- Notice here I can change the data! -->
+      <c-person name="Yrra Doe" age="22"></c-person>
     </div>
   </lightning-card>
 </template>
