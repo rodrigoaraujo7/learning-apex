@@ -20,7 +20,7 @@
 | [`Math Methods`](#math-methods)                         | [`Where And`](#where-and)                         | [`Update`](#update)                        | [`Class with Trigger`](#class-with-trigger)             |                               | [`Object`](#object-1)
 | [`Conditional in variables`](#conditional-in-variables) | [`Like`](#like)                                   | [`Delete`](#delete)                        | [`Test`](#test)                                         |                               | [`LWC if`](#lwc-if)
 | [`Conditional`](#conditional)                           | [`Order by`](#order-by)                           | [`Try Catch`](#try-catch--exception-class) |                                                         |                               | [`Onclick`](#onclick) 
-| [`Loops`](#loops)                                       | [`Group by`](#group-by)                           |                                                                                                     
+| [`Loops`](#loops)                                       | [`Group by`](#group-by)                           |                                            |                                                         |                               | [`@api`](#api) 
 | [`List`](#list)                                         | [`Limit`](#limit)                                 |                                                                                                    
 | [`Set`](#set)                                           | [`Count Sum Min Max Avg`](#count-sum-min-max-avg) |                                                                                                    
 | [`Map`](#map)                                           | [`Subquery`](#subquery)                           |  
@@ -818,6 +818,7 @@ person = {
 // Creating the variable
 visible = true
 ```
+
 ## Onclick
 
 ```js
@@ -840,5 +841,49 @@ click() { // This is a simples javascript code, but is a good example
    
    <!-- Now I create this button upon receiving that the function we created -->
    <lightning-button label="Magic Destruction" onclick={click} class="slds-p-around_medium"></lightning-button>
+</template>
+```
+
+## @api
+
+```js
+// person.js
+
+// Ok, now I created a new file, and I named product.html product.js
+
+// Important to import  the api in this case
+import { LightningElement, api } from "lwc";
+
+export default class Person extends LightningElement {
+  // @api Is used to we can change this data in html
+  @api name = 'Rodrigo Araujo'
+  @api age = 19
+}
+```
+
+```html
+<!-- person.html -->
+
+<!-- After that, we execute those variables with @api -->
+<template>
+  <h1>Name: {name}</h1>
+  <h3>Age: {age}</h3>
+</template>
+```
+
+```html
+<!-- app.html -->
+
+<template>
+  <lightning-card>
+    <div class="slds-p-around_x-large">
+      <!-- c-person is a tag to we can import our data in the -->
+      <!-- person component -->
+      <c-person></c-person>
+    
+      <!-- Notice here I can change the data! -->
+      <c-person name="Yrra Doe" age="22"></c-person>
+    </div>
+  </lightning-card>
 </template>
 ```
