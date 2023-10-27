@@ -91,7 +91,7 @@ integer price = 0;
 
 if ( price >= 30 && price <= 50 ) { // if price is between 30 and 50
     System.debug('I bought a t-shirts');
-} else if ( price > 50 && price <= 80 ) { if else price is between 51 and 80
+} else if ( price > 50 && price <= 80 ) { // if else price is between 51 and 80
     System.debug('I bought two t-shirts');
 } else if ( price > 90) { if else price is more than 90
     System.debug('I ended up leaving');
